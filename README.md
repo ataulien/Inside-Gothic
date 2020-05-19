@@ -20,7 +20,7 @@ For most of the objects you can see in the game world there is usually
 one Class representing it. Object specific features are added using
 inheritance.
 
-![](plantuml-images\50f507a195f7d81beb6b9d4686577af50b4bcb40.png)
+![](plantuml-images/50f507a195f7d81beb6b9d4686577af50b4bcb40.png)
 
 **_Fig. 1:_** Simplified world object class hierarchy of the zEngine.
 Specialized subclasses are shown in notes.
@@ -77,7 +77,7 @@ with are called _Mobs_ or _Mobsies_. I have been told not even actual
 Piranha Bytes employees know! Anyways, **_Fig. 2_** shows a complete
 list of all interactive objects in Gothic.
 
-![](plantuml-images\dd16b8d40a280901ab6f746781801dd32d5a0338.png)
+![](plantuml-images/dd16b8d40a280901ab6f746781801dd32d5a0338.png)
 
 **_Fig. 2:_** Subclasses of the _Interactive Object_ class (`Mob`).
 
@@ -101,7 +101,7 @@ For the chest, the following animations are defined:
 
 This produces the statemachine shown in **_Fig. 4_**.
 
-![](plantuml-images\72edb14b89bdab9fbb8ee82cf2bc02579b05e395.png)
+![](plantuml-images/72edb14b89bdab9fbb8ee82cf2bc02579b05e395.png)
 
 **_Fig. 4:_** All possible states a Chest can have.
 
