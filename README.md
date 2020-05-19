@@ -88,7 +88,7 @@ scheme. Lets look at the Chest in **_Fig. 3_** to give an example.
 
 ![Chest, Open and Closed](images/1-chest-states.png)
 
-**_Fig. 3:_** The two states of a Chest, Open **(a)** and Closed
+**_Fig. 3:_** The two states of a Chest, Closed **(a)** and Open
 **(b)**.
 
 For the chest, the following animations are defined:
