@@ -1,5 +1,23 @@
 # Overview
 
+- [Overview](#overview)
+- [Objects of the World](#objects-of-the-world)
+- [What is a ...](#what-is-a)
+  - [Vob (Virtual Object)](#vob-virtual-object)
+  - [Interactive Object (Mob)](#interactive-object-mob)
+  - [Freepoint (Spot)](#freepoint-spot)
+  - [NPC](#npc)
+  - [Item](#item)
+    - [Script Dependency during World Load](#script-dependency-during-world-load)
+- [What makes Gothic feel like Gothic?](#what-makes-gothic-feel-like-gothic)
+  - [Rain](#rain)
+    - [When does it rain?](#when-does-it-rain)
+  - [Daily Routines](#daily-routines)
+    - [Waypoints as rough location markers](#waypoints-as-rough-location-markers)
+    - [Script States](#script-states)
+    - [Interruptions](#interruptions)
+    - [Weird Daily Routines](#weird-daily-routines)
+
 In this Document, I am going to discuss the architecture of the games
 _Gothic I & II_ by _Piranha Bytes_. Both games are built upon the
 _zEngine_ or _ZenGin_, originally developed by a group of students
@@ -218,3 +236,172 @@ give a broad overview:
   simpler scheduling mechanism: Sleep, Eat, Roam, Repeat.
   Additionally, they can flee from predators (e.g. Scavengers flee
   from Snappers if attacked).
+
+## Item
+
+Everything you can pick up from the ground is using the `Item` class. They have the following important properties:
+
+- Display name
+- Item category (Potion, weapon, ...)
+- Value in Gold/Ore
+- Description Text
+
+Then, they _all_ have properties regarding consumables, armor, weapons, and so on, which are just disabled by default. That could be:
+
+- Script function to run on use, equip and unequip
+- New Visual for the character who equipped this (for armors)
+- Magic cycle and script functions
+- Guild and fake-Guild
+- Spell range
+- For a full list, see [this](https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/_Intern/CLASSES.D#L79).
+
+Depending on the item category, some of these are used while the others are ignored. I imagine this could have been made nicer be creating more classes, and not shoving everything into one base class...
+
+### Script Dependency during World Load
+
+Items can be spawned via script, but usually are loaded straight from the world-file
+(`.zen`). However, the visual of the item is always defined in the script instance!
+
+For example, let's take a look at the [Health Potion instance
+definition](https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Items/Potions.d#L164)
+(see `Mesh to use` comment):
+
+```c
+INSTANCE ItFo_Potion_Health_01(C_Item)
+{
+  name        = NAME_Trank;
+
+  mainflag    = ITEM_KAT_POTIONS;
+  flags       = ITEM_MULTI;
+
+  value       = Value_HpEssenz;
+
+  visual      = "ItFo_Potion_Health_01.3ds"; // <------------ Mesh to use
+  material    = MAT_GLAS;
+  on_state[0] = UseHealthPotion;
+  scemeName   = "POTIONFAST";
+
+  description = "Essenz heilender Kraft ";
+  TEXT[1]     = NAME_Bonus_HP; COUNT[1] = HP_Essenz;
+  TEXT[5]     = NAME_Value;    COUNT[5] = Value_HpEssenz;
+};
+```
+
+In the world-file itself, only the instances name is stored, such as `ItFo_Potion_Health_01` in the example above.
+
+This requires you to have the Daedalus-VM ready while loading the world, if you want to place all items on that step. Without being able to run instance constructors you're not going to know how the items should look like.
+
+> This is especially unfortunate, since the visual is the only missing piece at
+> load time. You could delay running the script instance constructor until the
+> item is picked up and write a full world importer without ever touching the
+> scripts...
+>
+> If you are dealing with items from the original game only, you may precompute
+> the mapping of script instances to visuals, but that would not work for mods
+> with custom items.
+
+# What makes Gothic feel like Gothic?
+
+## Rain
+
+On the (almost) yearly _Moddertreffen_, a Community Meetup, I have been told, that while the programmers thought Rain was important for an authentic feeling, management (or the publisher, can't remember) didn't think so. The legend goes that some members of the team met at the weekend and implemented rain into the engine, because it felt like the right thing to do. Management like it (or didn't care) and they left it in.
+
+### When does it rain?
+
+The two main properties for controlling the rain are its _Start_ and _Stop_ times.
+
+- There are no limitations on when the rain happens during the day (or night).
+- The minimum duration for rain is 1 hour.
+- The maximum duration is about 2.5 hours.
+
+The following special cases exist:
+
+1.  The first rain-event always happens between 16:30 and 17:30, so that the player will definitely see it.
+2.  On the first 3 Days, it only rains. After those, there is also lightning with a chance of 40%.
+
+## Daily Routines
+
+As discussed in the [NPC class overview](#npc), the Daily Routine is executed if an NPC has nothing else to do. They are defined via Daedalus-scripts. For example, this is [Diegos Daily Routine](https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/NPC/PC_Thief.d#L50) after you talked to him at the start of the game (`TA` meaning `Tages Ablauf`, just `Daily Routine` in German):
+
+```c
+FUNC VOID Rtn_Start_1 ()
+{
+  //              Start   End
+  TA_Sleep       (23,00,  03,00,  "OCR_HUT_1");
+  TA_SitAround   (03,00,  05,30,  "OCR_HUT_Z5_SIT3");
+  TA_Sleep       (05,30,  07,00,  "OCR_CAULDRON_1");
+  TA_SitAround   (07,00,  10,00,  "OCR_CAULDRON_1");
+  TA_Smalltalk   (10,00,  12,00,  "OCR_CAMPFIRE_A_MOVEMENT1"); //mit Grim
+  TA_SitAround   (12,00,  16,00,  "OCR_CAULDRON_1");
+  TA_Smalltalk   (16,00,  18,00,  "OCR_CAMPFIRE_A_MOVEMENT3"); //mit Stt_322
+  TA_SitCampfire (18,00,  23,00,  "OCR_CAMPFIRE_A_MOVEMENT1");
+};
+```
+
+Script functions like the one above are executed once when the NPC is spawned or has changed its Daily Routine. Each of the function calls registers its activity in the Todo-list each Npc has for the specified timespan and Waypoint, which specifies the location on where that activity should be done.
+
+> Internally, each of those `TA_something`-functions maps to only one script external, `TA_Min`. A complete list of all possible actions is defined [here](github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/ZS/Ta.d).
+
+### Waypoints as rough location markers
+
+As you can see in the code snipped above, there is an interesting comment, `// mit Grim`:
+
+```c
+TA_Smalltalk(..., "OCR_CAMPFIRE_A_MOVEMENT1") // mit Grim
+```
+
+This says, that Diego should to Smalltalk with the Npc _Grim_. However, that is just a code comment. The `TA_Smalltalk` activity just searches for _any_ nearby Npc to do smalltalk with. In Grims Daily Routine, there is a similar entry, which makes them both go to the same location to meet there every day.
+Both of them just don't know who to expect there and meet every day by "chance", which is kinda funny.
+
+This also applies to states where interactive items are involved. They usually just say _Go to some location and see if you can find an Amboss to work on_. If that is already occupied, the Npc may do something else instead.
+
+### Script States
+
+This is a complex topic, which I need to quickly go over for daily routines. However, Script States are also used for other purposes extensively.
+
+Each of the Daily-Routine actions registered for that Npc executes a _Script State_ on that Npc when its time has come. For example, lets look at this line again:
+
+```c
+  TA_Smalltalk   (10,00,  12,00,  "OCR_CAMPFIRE_A_MOVEMENT1"); //mit Grim
+```
+
+On execution, this registers the Script State `ZS_SMALLTALK` from 10:00 to 12:00 at the location `OCR_CAMPFIRE_A_MOVEMENT1` in Diegos Daily Routine.
+`ZS_SMALLTALK` is then defined [here](https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/ZS/ZS_Smalltalk.d).
+
+Each Script State can have the following script functionality:
+
+1. An `init` function, called once when the state is started
+2. A `loop` function, called every frame while the state is active and there is nothing else to do. Also decides whether the state should continue.
+3. An `end` function, called when the state has ended.
+
+If the time goes on and a different Daily Routine action gets activated, the current state is canceled gracefully and the next state is started.
+
+> **_Example: Smalltalk_**
+>
+> For `ZS_SMALLTALK`, you can break that down in the following (as seen from the Npcs perspecitve):
+>
+> **Begin the state:**
+>
+> 1.  Set me to slow-walkmode.
+> 2.  If I am not already on a Freepoint called `SMALLTALK`, let me go to the Waypoint registered in the Daily Routine.
+> 3.  Then, let me go to the next unoccupied Freepoint called `SMALLTALK`.
+> 4.  Face into the direction of the Freepoint.
+>
+> **Then, when there is nothing else to do:**
+>
+> ![](../images/script-state-smalltalk.svg)
+>
+> On this particular Script-State, there is not action when the state ended.
+
+### Interruptions
+
+Execution of the Script State belonging to the current Daily Routine action is interrupted by assigning any other Script State to the Npc, ie. when when taking damage or talking to the Npc, which starts `ZS_TALK`.
+
+Once the non-routine Script State is over and the Npc has nothing to do anymore, the Daily Routine is started again.
+
+### Weird Daily Routines
+
+There are some gameplay elements you wouldn't think of as a Daily Routine, such as
+
+- Following the Player
+- Guiding the player to some location
