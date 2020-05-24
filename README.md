@@ -304,7 +304,7 @@ This requires you to have the Daedalus-VM ready while loading the world, if you 
 
 ## Rain
 
-On the (almost) yearly _Moddertreffen_, a Community Meetup, I have been told, that while the programmers thought Rain was important for an authentic feeling, management (or the publisher, can't remember) didn't think so. The legend goes that some members of the team met at the weekend and implemented rain into the engine, because it felt like the right thing to do. Management like it (or didn't care) and they left it in.
+On the (almost) yearly _Moddertreffen_, a Community Meetup, I have been told, that while the programmers thought Rain was important for an authentic feeling, management (or the publisher, can't remember) didn't think so. The legend goes that some members of the team met at the weekend and implemented rain into the engine, because it felt like the right thing to do. Management liked it (or didn't care) and they left it in.
 
 ### When does it rain?
 
@@ -389,7 +389,7 @@ If the time goes on and a different Daily Routine action gets activated, the cur
 >
 > **Then, when there is nothing else to do:**
 >
-> ![](../images/script-state-smalltalk.svg)
+> ![](images/script-state-smalltalk.svg)
 >
 > On this particular Script-State, there is not action when the state ended.
 
