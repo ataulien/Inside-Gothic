@@ -150,6 +150,15 @@ If the monster is in a fight already, the rules are a bit simpler:
 
 ### Fleeing State
 
+The following effects are applied when the state is initialized:
+
+1. The Monster is told to run (instead of walk)
+
+During the loop update, the following actions are executed:
+
+1.  If the attacker is within 2 a range of meters, the Npc finds the next Waypoint in the opposite direction of the attacker and sprints towards it.
+2.  Otherwise, it remembers the nearest Waypoint as "Home" and stays there. Fleeing is done.
+
 ### Attacking State
 
 The following effects are applied when the state is initialized:
@@ -163,6 +172,16 @@ During the loop update, the following actions are executed:
 - If the target is dead, the attack is over and the monster will start [eating the target](#eat-ground-state). [^2]
 - If the target is running away, and the time the monster is allowed to follow is passed, the attack is canceled.
 - If the target is running away through water, the attack is canceled right away (depending on the monsters properties). [^3]
+
+When the target became invalid or is unable to fight (ie. went unconscious), the monster will
+
+- start [eating](#eat-ground-state) if it is classified as `HUNTER`
+- or (if it isn't a `HUNTER`) try to find something else to attack. If there is nothing, the attack is cancelled.
+
+When an attack got cancelled, the monster will:
+
+1.  Play the _Warning_ animation
+2.  Wait for 1 second on the spot where it's standing so the player has a chance to get away.
 
 !!! note
 

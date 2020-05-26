@@ -15,6 +15,8 @@ into the engines architecture and functionality for those interested to
 learn more about the inner workings of the Gothic games on a higher
 level.
 
+You can edit this document on [Github](https://github.com/ataulien/Inside-Gothic).
+
 !!! note
 
     This is a work-in-progress.
