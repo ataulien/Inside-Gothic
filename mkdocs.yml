@@ -1,0 +1,28 @@
+site_name: My Docs
+
+nav:
+  - Home: index.md
+  - Objects:
+      - Overview: objects/objects-overview.md
+      - Vob: objects/vob.md
+      - Interactive (Mob): objects/mob.md
+      - Spot: objects/spot.md
+      - Npc: objects/npc.md
+      - Item: objects/item.md
+  - Action Queue: ActionQueue.md
+  - Rain: Rain.md
+  - Daily Routine: DailyRoutine.md
+  - Monster AI: monster-ai.md
+  - Dialogue System: DialogueSystem.md
+  - Quest Log: QuestLog.md
+
+theme:
+  name: material
+  logo: images/gothic_custom_icon_by_thedoctor45_d3hszn0-250t.png
+  palette:
+    primary: black
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
