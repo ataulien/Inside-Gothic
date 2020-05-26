@@ -1,4 +1,0 @@
-!include ../../style.iuml
-skinparam componentStyle uml1
-
-[Go to Waypoint] <- [Take Item] <- [Drink Beer]
