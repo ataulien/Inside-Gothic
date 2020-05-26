@@ -1,0 +1,640 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+    
+    
+      
+        <title>Dialogue System - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dialogue-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../images/gothic_custom_icon_by_thedoctor45_d3hszn0-250t.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Dialogue System
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../images/gothic_custom_icon_by_thedoctor45_d3hszn0-250t.png" alt="logo">
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Objects
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Objects" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Objects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/objects-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/vob/" title="Vob" class="md-nav__link">
+      Vob
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/mob/" title="Interactive (Mob)" class="md-nav__link">
+      Interactive (Mob)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/spot/" title="Spot" class="md-nav__link">
+      Spot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/npc/" title="Npc" class="md-nav__link">
+      Npc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/item/" title="Item" class="md-nav__link">
+      Item
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ActionQueue/" title="Action Queue" class="md-nav__link">
+      Action Queue
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Rain/" title="Rain" class="md-nav__link">
+      Rain
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DailyRoutine/" title="Daily Routine" class="md-nav__link">
+      Daily Routine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../monster-ai/" title="Monster AI" class="md-nav__link">
+      Monster AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dialogue System
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Dialogue System" class="md-nav__link md-nav__link--active">
+      Dialogue System
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-lines" class="md-nav__link">
+    Dialogue Lines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saying-something" class="md-nav__link">
+    Saying something
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-drug-monopol" class="md-nav__link">
+    Example - Drug Monopol
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../QuestLog/" title="Quest Log" class="md-nav__link">
+      Quest Log
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-lines" class="md-nav__link">
+    Dialogue Lines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saying-something" class="md-nav__link">
+    Saying something
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-drug-monopol" class="md-nav__link">
+    Example - Drug Monopol
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="dialogue-system">Dialogue-System</h1>
+<p><img alt="" src="https://www.mobygames.com/images/shots/l/20018-gothic-windows-screenshot-the-game-begins-with-this-conversation.jpg" /><br />
+<em><strong>Fig. 1:</strong> Dialogue Lines (<a href="https://www.mobygames.com/game/windows/gothic/screenshots/gameShotId,20018/">Source</a>)</em></p>
+<p>In Gothics Dialogue-System, everything revolves around <em>Information</em>-Instances and their <em>Conditions</em>.</p>
+<h2 id="dialogue-lines">Dialogue Lines</h2>
+<p>Every Dialogue Line you can see in <strong><em>Fig. 1</em></strong> is an <em>Information</em>-Instance, which has the following properties:</p>
+<ul>
+<li><strong>Description</strong> The text the player sees in the dialogue menu</li>
+<li><strong>Priority</strong> Top to Bottom ordering</li>
+<li><strong>Is Permanent?</strong> Whether the line is always shown and can be used multiple times.</li>
+<li><strong>Is Important?</strong> Whether the Npc should start talking to the player automatically to tell him this information. Guards usually do this to stop you.</li>
+<li><strong>Condition-Function</strong> If this script function returns <code>True</code>, this information is shown in the dialogue menu. Evaluated every time the Dialogue Menu is loaded.</li>
+<li><strong>Info-Function</strong> Script function to be called when this information got selected in the dialogue menu.</li>
+</ul>
+<p>Every time the dialogue menu is loaded, the <em>Condition</em> function is called to
+check whether the dialogue line should be available in the menu.</p>
+<p>Whenever you as the Player choses a dialogue line in the menu, the <em>Hero</em>
+remembers that you chose that line. This is because only the originator of the
+conversation stores the selected information-lines.</p>
+<p>Dialogue-lines already known by the player and not flagged as <code>Permanent</code> will not show up in the menu anymore.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If two Npcs would talk to each other, the one starting the conversation would
+also store information-lines they chose. However, since Gothic is a Single
+Player game, that never happens.</p>
+</div>
+<p>The scripts can then check whether the Hero knows a certain information <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_GUR_1201_CorKalom.d#L255">like so</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Equals to &quot;Has the player ever chosen that dialogue line?&quot;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Npc_KnowsInfo</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span><span class="n">DIA_BaalOrun_GotWeed</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="c1">// ... do something</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="saying-something">Saying something</h2>
+<p>Letting the Characters actually say something is done by enqueuing dialogue lines into the <a href="../ActionQueue/">Action Queue</a> by calling <code>AI_Output</code> from the Info-Function like so:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">AI_Output</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_15_00&quot;</span><span class="p">);</span> <span class="c1">//Ich habe einen Brief für den obersten Feuermagier.</span>
+<span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_11_01&quot;</span><span class="p">);</span> <span class="c1">//So...?</span>
+<span class="n">AI_Output</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_15_02&quot;</span><span class="p">);</span> <span class="c1">//Ein Magier hat ihn mir gegeben, kurz bevor sie mich reingeworfen haben.</span>
+<span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_11_03&quot;</span><span class="p">);</span> <span class="c1">//Du kannst von Glück sagen, dass ich mich bei den Magiern nicht mehr blicken lassen kann. Jeder andere wird dir mit Freude für</span>
+</code></pre></div>
+
+
+<p>Lets break it down:</p>
+<ul>
+<li>
+<p>The first two parameters are who is saying the line to who. This is a dialogue between Diego and the Hero, so <code>self</code> refers to Diego in this case. Note how they switch back and forth!</p>
+</li>
+<li>
+<p>The third Parameter is a unique reference to the output-database, which stores the actual dialogue text and the WAV-file to play.</p>
+</li>
+</ul>
+<p>When each of these <code>AI_Outputs</code> is pushed into the <a href="../ActionQueue/">Action Queue</a> of the talking character, the character which is being talked to explicitly checks whether a conversation is active and blocks its own Action-Queue while someone else says something.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The original workflow for these files incorporated parsing the comments behind the <code>AI_Output</code> and putting them into the database.</p>
+</div>
+<h2 id="example-drug-monopol">Example - Drug Monopol</h2>
+<p>In this dialogue, the player gets asked by Cor Kalom to stop a Swampweed production of the New Camp. This is the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_GUR_1201_CorKalom.d#L379"><em>Information</em>-Instance</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">Info_Kalom_DrugMonopol</span> <span class="p">(</span><span class="n">C_INFO</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">npc</span>         <span class="o">=</span> <span class="n">GUR_1201_CorKalom</span><span class="p">;</span>
+  <span class="n">condition</span>   <span class="o">=</span> <span class="n">Info_Kalom_DrugMonopol_Condition</span><span class="p">;</span>
+  <span class="n">information</span> <span class="o">=</span> <span class="n">Info_Kalom_DrugMonopol_Info</span><span class="p">;</span>
+  <span class="n">permanent</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Hast DU noch eine Aufgabe für mich?&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>Here, the condition checks, whether the player is joined the Swamp Camp and is now a Novice:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">FUNC</span> <span class="n">INT</span> <span class="nf">Info_Kalom_DrugMonopol_Condition</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">Npc_GetTrueGuild</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">==</span><span class="n">GIL_NOV</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// implicit return 0</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>When the Player selected the dialogue line of this <em>Information</em>-Instance, this function gets called:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">FUNC</span> <span class="n">VOID</span> <span class="nf">Info_Kalom_DrugMonopol_Info</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">AI_Output</span> <span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span><span class="s">&quot;Mis_1_Psi_Kalom_DrugMonopol_15_00&quot;</span><span class="p">);</span> <span class="c1">// ...</span>
+  <span class="n">AI_Output</span> <span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span><span class="s">&quot;Mis_1_Psi_Kalom_DrugMonopol_10_01&quot;</span><span class="p">);</span> <span class="c1">// ...</span>
+
+  <span class="c1">// ... &lt;snip&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Once the Player has selected the dialogue line, the Hero remembers it. Other scripts can then check whether that dialogue line was ever chosen by the player via a call to <code>Npc_KnowsInfo</code>.</p>
+<p>Dialogue-lines already known by the player and not flagged as <code>Permanent</code> will not show up in the menu anymore.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice how in Kor Kaloms <code>AI_Output</code> the two parameters are <code>other</code> and <code>self</code>, while the dialogue of Diego listed above explicitly used <code>hero</code>. I can imagine that is because Kor Kaloms Dialogue was made multiplayer-ready!</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../monster-ai/" title="Monster AI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Monster AI
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../QuestLog/" title="Quest Log" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Quest Log
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

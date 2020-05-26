@@ -1,0 +1,23 @@
+@startuml
+
+!include ../../style.iuml
+skinparam padding 10
+
+Start
+
+if (Is there a close Npc also wanting to do smalltalk?) then (yes)
+    :If so, turn to it;
+    :Say a random line;
+    :Wait for a few seconds;
+else (no)
+    if (I'm trying to find someone to do smalltalk\nwith for more than 5 seconds now) then (yes)
+        :cancel smalltalk and just stand around.;
+        Stop
+    else (no)
+        :Try again in 1 Second;
+    endif
+endif
+
+Stop
+
+@enduml

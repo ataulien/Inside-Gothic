@@ -1,0 +1,675 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+    
+    
+      
+        <title>Action Queue - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#action-queue" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../images/gothic_custom_icon_by_thedoctor45_d3hszn0-250t.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Action Queue
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../images/gothic_custom_icon_by_thedoctor45_d3hszn0-250t.png" alt="logo">
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Objects
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Objects" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Objects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/objects-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/vob/" title="Vob" class="md-nav__link">
+      Vob
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/mob/" title="Interactive (Mob)" class="md-nav__link">
+      Interactive (Mob)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/spot/" title="Spot" class="md-nav__link">
+      Spot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/npc/" title="Npc" class="md-nav__link">
+      Npc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../objects/item/" title="Item" class="md-nav__link">
+      Item
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Action Queue
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Action Queue" class="md-nav__link md-nav__link--active">
+      Action Queue
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filling-the-queue-via-scripting" class="md-nav__link">
+    Filling the Queue via Scripting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay-events" class="md-nav__link">
+    Overlay Events
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Rain/" title="Rain" class="md-nav__link">
+      Rain
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DailyRoutine/" title="Daily Routine" class="md-nav__link">
+      Daily Routine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../monster-ai/" title="Monster AI" class="md-nav__link">
+      Monster AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DialogueSystem/" title="Dialogue System" class="md-nav__link">
+      Dialogue System
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../QuestLog/" title="Quest Log" class="md-nav__link">
+      Quest Log
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filling-the-queue-via-scripting" class="md-nav__link">
+    Filling the Queue via Scripting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay-events" class="md-nav__link">
+    Overlay Events
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="action-queue">Action-Queue</h1>
+<p>While in Gothic, every Vob can have an Action-Queue, they are most used by Npcs.
+Actually, the Action-Queue is <em>the inner core of Npc behavior</em>!</p>
+<p>The Action-Queue itself is best described as a First-In-First-Out buffer with
+extra steps. It holds actions of the following categories:</p>
+<ul>
+<li>Damage</li>
+<li>Weapon</li>
+<li>Movement (Go somewhere)</li>
+<li>Attack (Single attacks)</li>
+<li>UseItem</li>
+<li>Script State</li>
+<li>Manipulate (Items/Mobs)</li>
+<li>Conversation</li>
+<li>Magic</li>
+</ul>
+<blockquote>
+<p>For a full list of categories and sub-types, basically everything an Npc can
+do in Gothic, see <a href="../EventMessages/">this document</a>.</p>
+</blockquote>
+<p>On every frame, the action at the front of the queue is executed. The action
+itself can decide whether it is done after it was executed, or if it needs to be
+executed again next frame:</p>
+<ul>
+<li>If the action says it is <strong>done</strong>, it will be popped from the queue and the
+  <strong>next action will be executed</strong> next frame.</li>
+<li>If the action is <strong><em>not</em> done</strong> yet, it will stay at the front of the queue
+  and <strong>will be executed again</strong> next frame.</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Let's assume the following sequence of actions has been pushed into an Npcs Action-Queue:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Index</strong></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Action</strong></td>
+<td align="center">Goto Location</td>
+<td align="center">Take Item</td>
+<td align="center">Use Item (Beer)</td>
+<td align="center">Goto Character (Player)</td>
+<td align="center">Give Item (5x Ore)</td>
+</tr>
+</tbody>
+</table>
+<p>The Action at index 0 (<em>Goto Location</em>) is at the front of the queue and thus
+will be executed for as long as the Npc is not at the target location.</p>
+<p>On every frame, when the <em>Goto Location</em> action is executed, it will check
+whether the Npc arrived at its destination. Lets say, it did. Then, the action
+will be popped off the Queue and the next one takes its place. The Queue now
+looks like this:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Index</strong></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Action</strong></td>
+<td align="center">Take Item</td>
+<td align="center">Use Item (Beer)</td>
+<td align="center">Goto Character (Player)</td>
+<td align="center">Give Item (5x Ore)</td>
+</tr>
+</tbody>
+</table>
+<p>The next Action is now at the front of the queue and will be executed. For <em>Take
+Item</em>, it will block the queue until all animations have been finished and the
+item is in the inventory (if the Npc could pick it up, that is). After the item
+was picked up, the Action signals that it is done. The queue now looks like
+this:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Index</strong></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Action</strong></td>
+<td align="center">Use Item (Beer)</td>
+<td align="center">Goto Character (Player)</td>
+<td align="center">Give Item (5x Ore)</td>
+</tr>
+</tbody>
+</table>
+<p>And so on, you get the Idea.</p>
+<h2 id="filling-the-queue-via-scripting">Filling the Queue via Scripting</h2>
+<p>The Action-Queue is the most important system to let the games scripts work in
+the way they do. Many of the Npc related script external functions actually just
+push an action into the queue and continue with executing the script.</p>
+<p>Most commonly used in dialogues, the <code>AI_Output</code> external lets a character say something. In the original scripts, a dialogue <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_Pc_Thief.d#L28">can look like this</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">FUNC</span> <span class="kt">void</span>  <span class="nf">PC_Thief_WHEEL_Info</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span><span class="s">&quot;PC_Thief_WHEEL_Info_11_01&quot;</span><span class="p">);</span> <span class="c1">//Die Winde scheint zu klemmen.</span>
+  <span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span><span class="s">&quot;PC_Thief_WHEEL_Info_11_02&quot;</span><span class="p">);</span> <span class="c1">//Lass mich mal, vielleicht kann ich da was machen!</span>
+
+  <span class="n">AI_StopProcessInfos</span><span class="p">(</span><span class="n">self</span><span class="p">);</span> <span class="c1">// Cancels dialogue</span>
+
+  <span class="n">AI_GotoWP</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;LOCATION_12_14_WHEEL&quot;</span><span class="p">);</span>
+  <span class="n">AI_AlignToWP</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
+
+  <span class="n">AI_PlayAni</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;T_PLUNDER&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>In this dialogue option, Diego tells the Hero "Let me try" and goes to the
+broken wind to turn it. All those <code>AI_</code>-functions push an action into Diegos
+Action-Queue and are executed sequentially, one after another.</p>
+<h2 id="overlay-events">Overlay Events</h2>
+<p>Usually, only the event at the front of the queue is active and passed to
+the target object. However, events marked as "Overlay" will act a little
+bit different.</p>
+<p>If such an overlay-event is at the front of the queue, it will be passed
+to the target object every update cycle. Then, the next event in the queue
+is looked at. If that is also an overlay-event, it is passed to the object as
+well.</p>
+<p>This continues until the first event is encountered which is not an
+overlay. That will be the last event passed to the object.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objects/item/" title="Item" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Item
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Rain/" title="Rain" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Rain
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
