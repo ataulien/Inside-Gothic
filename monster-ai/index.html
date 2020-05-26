@@ -743,6 +743,15 @@ However, the modulo operation will return a number from <code>0</code> to <code>
 <p>Attacking summoned monsters will also react to the summoner taking damage.</p>
 </div>
 <h3 id="fleeing-state">Fleeing State</h3>
+<p>The following effects are applied when the state is initialized:</p>
+<ol>
+<li>The Monster is told to run (instead of walk)</li>
+</ol>
+<p>During the loop update, the following actions are executed:</p>
+<ol>
+<li>If the attacker is within 2 a range of meters, the Npc finds the next Waypoint in the opposite direction of the attacker and sprints towards it.</li>
+<li>Otherwise, it remembers the nearest Waypoint as "Home" and stays there. Fleeing is done.</li>
+</ol>
 <h3 id="attacking-state">Attacking State</h3>
 <p>The following effects are applied when the state is initialized:</p>
 <ol>
@@ -756,6 +765,16 @@ However, the modulo operation will return a number from <code>0</code> to <code>
 <li>If the target is running away, and the time the monster is allowed to follow is passed, the attack is canceled.</li>
 <li>If the target is running away through water, the attack is canceled right away (depending on the monsters properties). <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ul>
+<p>When the target became invalid or is unable to fight (ie. went unconscious), the monster will</p>
+<ul>
+<li>start <a href="#eat-ground-state">eating</a> if it is classified as <code>HUNTER</code></li>
+<li>or (if it isn't a <code>HUNTER</code>) try to find something else to attack. If there is nothing, the attack is cancelled.</li>
+</ul>
+<p>When an attack got cancelled, the monster will:</p>
+<ol>
+<li>Play the <em>Warning</em> animation</li>
+<li>Wait for 1 second on the spot where it's standing so the player has a chance to get away.</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the target is <em>Invincible</em>, it is not attacked. This is a dirty hack to ignore characters who are talking right now.</p>
