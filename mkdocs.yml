@@ -13,6 +13,7 @@ nav:
   - Rain: Rain.md
   - Daily Routine: DailyRoutine.md
   - Monster AI: monster-ai.md
+  - Fight AI: fight-ai.md
   - Dialogue System: DialogueSystem.md
   - Quest Log: QuestLog.md
 
@@ -26,3 +27,8 @@ markdown_extensions:
   - admonition
   - codehilite
   - footnotes
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
