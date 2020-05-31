@@ -375,6 +375,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../fight-ai/" title="Fight AI" class="md-nav__link">
+      Fight AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../DialogueSystem/" title="Dialogue System" class="md-nav__link">
       Dialogue System
     </a>
@@ -563,7 +575,7 @@ this:</p>
 the way they do. Many of the Npc related script external functions actually just
 push an action into the queue and continue with executing the script.</p>
 <p>Most commonly used in dialogues, the <code>AI_Output</code> external lets a character say something. In the original scripts, a dialogue <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_Pc_Thief.d#L28">can look like this</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">FUNC</span> <span class="kt">void</span>  <span class="nf">PC_Thief_WHEEL_Info</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">FUNC</span> <span class="kt">void</span>  <span class="nf">PC_Thief_WHEEL_Info</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span><span class="s">&quot;PC_Thief_WHEEL_Info_11_01&quot;</span><span class="p">);</span> <span class="c1">//Die Winde scheint zu klemmen.</span>
   <span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span><span class="s">&quot;PC_Thief_WHEEL_Info_11_02&quot;</span><span class="p">);</span> <span class="c1">//Lass mich mal, vielleicht kann ich da was machen!</span>
@@ -576,7 +588,6 @@ push an action into the queue and continue with executing the script.</p>
   <span class="n">AI_PlayAni</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;T_PLUNDER&quot;</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
-
 
 <p>In this dialogue option, Diego tells the Hero "Let me try" and goes to the
 broken wind to turn it. All those <code>AI_</code>-functions push an action into Diegos

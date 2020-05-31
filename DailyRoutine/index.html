@@ -382,6 +382,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../fight-ai/" title="Fight AI" class="md-nav__link">
+      Fight AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../DialogueSystem/" title="Dialogue System" class="md-nav__link">
       Dialogue System
     </a>
@@ -476,7 +488,7 @@ example, this is <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit
 Routine</a>
 after you talked to him at the start of the game (<code>TA</code> meaning <code>Tages Ablauf</code>,
 just <code>Daily Routine</code> in German):</p>
-<div class="codehilite"><pre><span></span><code><span class="n">FUNC</span> <span class="n">VOID</span> <span class="nf">Rtn_Start_1</span> <span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">FUNC</span> <span class="n">VOID</span> <span class="nf">Rtn_Start_1</span> <span class="p">()</span>
 <span class="p">{</span>
   <span class="c1">//              Start   End</span>
   <span class="n">TA_Sleep</span>       <span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="mo">03</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="s">&quot;OCR_HUT_1&quot;</span><span class="p">);</span>
@@ -490,7 +502,6 @@ just <code>Daily Routine</code> in German):</p>
 <span class="p">};</span>
 </code></pre></div>
 
-
 <p>Script functions like the one above are executed once when the NPC is spawned or
 has changed its Daily Routine. Each of the function calls registers its activity
 in the Todo-list each Npc has for the specified timespan and Waypoint, which
@@ -502,9 +513,8 @@ external, <code>TA_Min</code>. A complete list of all possible actions is define
 </blockquote>
 <h2 id="waypoints-as-rough-location-markers">Waypoints as rough location markers</h2>
 <p>As you can see in the code snipped above, there is an interesting comment, <code>// mit Grim</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">TA_Smalltalk</span><span class="p">(...,</span> <span class="s">&quot;OCR_CAMPFIRE_A_MOVEMENT1&quot;</span><span class="p">)</span> <span class="c1">// mit Grim</span>
+<div class="highlight"><pre><span></span><code><span class="n">TA_Smalltalk</span><span class="p">(...,</span> <span class="s">&quot;OCR_CAMPFIRE_A_MOVEMENT1&quot;</span><span class="p">)</span> <span class="c1">// mit Grim</span>
 </code></pre></div>
-
 
 <p>This says, that Diego should to Smalltalk with the Npc <em>Grim</em>. However, that is
 just a code comment. The <code>TA_Smalltalk</code> activity just searches for <em>any</em> nearby
@@ -521,9 +531,8 @@ However, Script States are also used for other purposes extensively.</p>
 <p>Each of the Daily-Routine actions registered for that Npc executes a <em>Script
 State</em> on that Npc when its time has come. For example, lets look at this line
 again:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="n">TA_Smalltalk</span>   <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="mi">12</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="s">&quot;OCR_CAMPFIRE_A_MOVEMENT1&quot;</span><span class="p">);</span> <span class="c1">//mit Grim</span>
+<div class="highlight"><pre><span></span><code>  <span class="n">TA_Smalltalk</span>   <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="mi">12</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span>  <span class="s">&quot;OCR_CAMPFIRE_A_MOVEMENT1&quot;</span><span class="p">);</span> <span class="c1">//mit Grim</span>
 </code></pre></div>
-
 
 <p>On execution, this registers the Script State <code>ZS_SMALLTALK</code> from 10:00 to 12:00
 at the location <code>OCR_CAMPFIRE_A_MOVEMENT1</code> in Diegos Daily Routine.

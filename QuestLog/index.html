@@ -319,6 +319,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../fight-ai/" title="Fight AI" class="md-nav__link">
+      Fight AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../DialogueSystem/" title="Dialogue System" class="md-nav__link">
       Dialogue System
     </a>
@@ -435,12 +447,11 @@ write-access to the players Quest-Log, but they cannot read back the quest
 status. Thus, a global boolean variable was created for most quests to track
 whether its active. Additionally, the Quest-Log is <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_Bau_935_Homer.d#L110">kept in
 sync</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Homer_DamLurker</span> <span class="o">=</span> <span class="n">LOG_RUNNING</span><span class="p">;</span> <span class="c1">// Global variable</span>
+<div class="highlight"><pre><span></span><code><span class="n">Homer_DamLurker</span> <span class="o">=</span> <span class="n">LOG_RUNNING</span><span class="p">;</span> <span class="c1">// Global variable</span>
 
 <span class="n">Log_CreateTopic</span>   <span class="p">(</span><span class="n">CH1_DamLurker</span><span class="p">,</span> <span class="n">LOG_MISSION</span><span class="p">);</span>
 <span class="n">Log_SetTopicStatus</span><span class="p">(</span><span class="n">CH1_DamLurker</span><span class="p">,</span> <span class="n">LOG_RUNNING</span><span class="p">);</span>
 </code></pre></div>
-
 
 <p>I can't think of a reason other than the Quest-Log being implemented much later into development for this to make sense.</p>
 <h2 id="diary">Diary</h2>

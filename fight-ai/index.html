@@ -15,7 +15,7 @@
     
     
       
-        <title>Dialogue System - Inside-Gothic</title>
+        <title>Fight AI - Inside-Gothic</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dialogue-system" class="md-skip">
+        <a href="#fight-ai" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Dialogue System
+              Fight AI
             
           </span>
         </div>
@@ -317,18 +317,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../fight-ai/" title="Fight AI" class="md-nav__link">
-      Fight AI
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -340,14 +328,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Dialogue System
+        Fight AI
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Dialogue System" class="md-nav__link md-nav__link--active">
-      Dialogue System
+    <a href="./" title="Fight AI" class="md-nav__link md-nav__link--active">
+      Fight AI
     </a>
     
       
@@ -366,22 +354,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dialogue-lines" class="md-nav__link">
-    Dialogue Lines
+  <a href="#situations" class="md-nav__link">
+    Situations
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#saying-something" class="md-nav__link">
-    Saying something
+  <a href="#possible-fight-moves" class="md-nav__link">
+    Possible fight moves
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-drug-monopol" class="md-nav__link">
-    Example - Drug Monopol
+  <a href="#character-tactics" class="md-nav__link">
+    Character tactics
   </a>
   
 </li>
@@ -390,6 +378,18 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../DialogueSystem/" title="Dialogue System" class="md-nav__link">
+      Dialogue System
+    </a>
   </li>
 
     
@@ -431,22 +431,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dialogue-lines" class="md-nav__link">
-    Dialogue Lines
+  <a href="#situations" class="md-nav__link">
+    Situations
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#saying-something" class="md-nav__link">
-    Saying something
+  <a href="#possible-fight-moves" class="md-nav__link">
+    Possible fight moves
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-drug-monopol" class="md-nav__link">
-    Example - Drug Monopol
+  <a href="#character-tactics" class="md-nav__link">
+    Character tactics
   </a>
   
 </li>
@@ -467,101 +467,127 @@
                   
                 
                 
-                <h1 id="dialogue-system">Dialogue-System</h1>
-<p><img alt="" src="https://www.mobygames.com/images/shots/l/20018-gothic-windows-screenshot-the-game-begins-with-this-conversation.jpg" /><br />
-<em><strong>Fig. 1:</strong> Dialogue Lines (<a href="https://www.mobygames.com/game/windows/gothic/screenshots/gameShotId,20018/">Source</a>)</em></p>
-<p>In Gothics Dialogue-System, everything revolves around <em>Information</em>-Instances and their <em>Conditions</em>.</p>
-<h2 id="dialogue-lines">Dialogue Lines</h2>
-<p>Every Dialogue Line you can see in <strong><em>Fig. 1</em></strong> is an <em>Information</em>-Instance, which has the following properties:</p>
-<ul>
-<li><strong>Description</strong> The text the player sees in the dialogue menu</li>
-<li><strong>Priority</strong> Top to Bottom ordering</li>
-<li><strong>Is Permanent?</strong> Whether the line is always shown and can be used multiple times.</li>
-<li><strong>Is Important?</strong> Whether the Npc should start talking to the player automatically to tell him this information. Guards usually do this to stop you.</li>
-<li><strong>Condition-Function</strong> If this script function returns <code>True</code>, this information is shown in the dialogue menu. Evaluated every time the Dialogue Menu is loaded.</li>
-<li><strong>Info-Function</strong> Script function to be called when this information got selected in the dialogue menu.</li>
-</ul>
-<p>Every time the dialogue menu is loaded, the <em>Condition</em> function is called to
-check whether the dialogue line should be available in the menu.</p>
-<p>Whenever you as the Player choses a dialogue line in the menu, the <em>Hero</em>
-remembers that you chose that line. This is because only the originator of the
-conversation stores the selected information-lines.</p>
-<p>Dialogue-lines already known by the player and not flagged as <code>Permanent</code> will not show up in the menu anymore.</p>
+                <h1 id="fight-ai">Fight AI</h1>
+<p>Both monsters and humans use the same code for their Fight AI, which behaves differently depending on the weapons the character has access to.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If two Npcs would talk to each other, the one starting the conversation would
-also store information-lines they chose. However, since Gothic is a Single
-Player game, that never happens.</p>
+<p>Monsters are always in <em>Fist-Mode</em>, even when not attacking.</p>
+<p>An attacking Scavenger is the same as a fistpunch for the Fight-AI.</p>
 </div>
-<p>The scripts can then check whether the Hero knows a certain information <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_GUR_1201_CorKalom.d#L255">like so</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Equals to &quot;Has the player ever chosen that dialogue line?&quot;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">Npc_KnowsInfo</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span><span class="n">DIA_BaalOrun_GotWeed</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="c1">// ... do something</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h2 id="saying-something">Saying something</h2>
-<p>Letting the Characters actually say something is done by enqueuing dialogue lines into the <a href="../ActionQueue/">Action Queue</a> by calling <code>AI_Output</code> from the Info-Function like so:</p>
-<div class="highlight"><pre><span></span><code><span class="n">AI_Output</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_15_00&quot;</span><span class="p">);</span> <span class="c1">//Ich habe einen Brief für den obersten Feuermagier.</span>
-<span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_11_01&quot;</span><span class="p">);</span> <span class="c1">//So...?</span>
-<span class="n">AI_Output</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_15_02&quot;</span><span class="p">);</span> <span class="c1">//Ein Magier hat ihn mir gegeben, kurz bevor sie mich reingeworfen haben.</span>
-<span class="n">AI_Output</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span> <span class="s">&quot;Info_Diego_Brief_11_03&quot;</span><span class="p">);</span> <span class="c1">//Du kannst von Glück sagen, dass ich mich bei den Magiern nicht mehr blicken lassen kann. Jeder andere wird dir mit Freude für</span>
-</code></pre></div>
-
-<p>Lets break it down:</p>
+<h2 id="situations">Situations</h2>
+<p>Which move the character should do next is depending on the situation it finds itself in.
+Here is a complete list of all situations:</p>
+<p><strong>Priority 1: Reacting to enemy actions</strong></p>
 <ul>
-<li>
-<p>The first two parameters are who is saying the line to who. This is a dialogue between Diego and the Hero, so <code>self</code> refers to Diego in this case. Note how they switch back and forth!</p>
-</li>
-<li>
-<p>The third Parameter is a unique reference to the output-database, which stores the actual dialogue text and the WAV-file to play.</p>
-</li>
+<li>Enemy is about to hit me!</li>
+<li>Enemy is doing a storm-attack!</li>
+<li>I got the enemy in focus and they're turning towards me to hit me!</li>
 </ul>
-<p>When each of these <code>AI_Outputs</code> is pushed into the <a href="../ActionQueue/">Action Queue</a> of the talking character, the character which is being talked to explicitly checks whether a conversation is active and blocks its own Action-Queue while someone else says something.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The original workflow for these files incorporated parsing the comments behind the <code>AI_Output</code> and putting them into the database.</p>
+<p><strong>Priority 2: Enemy is in melee range</strong></p>
+<ul>
+<li>I'm in a weapon-combo</li>
+<li>I'm running towards my enemy</li>
+<li>I'm strafing</li>
+<li>I'm not doing anything, but got the enemy in focus</li>
+<li>Enemy is close, but not in focus!</li>
+</ul>
+<p><strong>Priority 3: Enemy is within walking distance (melee-range * 3)</strong></p>
+<ul>
+<li>I'm in a weapon-combo, but the enemy is just out of reach!</li>
+<li>I'm running towards my enemy, but he's still just out of reach!</li>
+<li>I'm strafing and the enemy is just out of reach</li>
+<li>Not doing anything while the enemy is just out of reach.</li>
+<li>Enemy just out of reach, but not focused!</li>
+</ul>
+<p><strong>Priority 4: Enemy is in far-fighting-range (Bows, Crossbows, Magic)</strong></p>
+<ul>
+<li>I have the enemy in focus!</li>
+<li>Enemy is not focused, but within far-fighting-range!</li>
+</ul>
+<p>All those situations are checked from top to bottom, in the order they are given here. Depending on the first match, the next move is determined.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Determination of the next move for a situation can also result in trying the next situation!</p>
 </div>
-<h2 id="example-drug-monopol">Example - Drug Monopol</h2>
-<p>In this dialogue, the player gets asked by Cor Kalom to stop a Swampweed production of the New Camp. This is the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/Story/MISSIONS/DIA_GUR_1201_CorKalom.d#L379"><em>Information</em>-Instance</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">Info_Kalom_DrugMonopol</span> <span class="p">(</span><span class="n">C_INFO</span><span class="p">)</span>
+<h2 id="possible-fight-moves">Possible fight moves</h2>
+<p>The following fight moves can be done by the characters:</p>
+<p><strong>Movement:</strong></p>
+<ul>
+<li>Run</li>
+<li>Run back</li>
+<li>Jump back</li>
+<li>Turn</li>
+<li>Strafe</li>
+<li>Turn to hit</li>
+<li>Stand up</li>
+</ul>
+<p><strong>Attacks:</strong></p>
+<ul>
+<li>Attack [When walking: Stormattack] otherwise [Left or Right]</li>
+<li>Side attack [Left &rarr; Right]</li>
+<li>Front attack [Left &rarr; Forward] or [Right &rarr; Forward]</li>
+<li>Triple attack [Forward &rarr; Right &rarr; Left] or [Left &rarr; Right &rarr; Forward]</li>
+<li>Whirl attack [Left &rarr; Right &rarr; Left &rarr; Right]</li>
+<li>Master attack [Left &rarr; Right &rarr; 4x Forward]</li>
+<li>Parade</li>
+<li>Storm-Attack</li>
+</ul>
+<p><strong>Attack Status:</strong></p>
+<ul>
+<li>Prehit</li>
+<li>Combozone</li>
+<li>Posthit</li>
+</ul>
+<p><strong>Character status:</strong></p>
+<ul>
+<li>On ground</li>
+<li>Stumble</li>
+<li>Wait (short, 200ms)</li>
+<li>Wait (long, 400ms)</li>
+</ul>
+<h2 id="character-tactics">Character tactics</h2>
+<p>Now with all situations and fight moves defined, we can look into how different fight-tactics are realized. Different tactics are used depending on the type of character and skill-level. The tactics are defined in the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/tree/master/gothic/_work/data/Scripts/content/AI/FAI">script files</a>.</p>
+<p>For each tactic, there is a set of script instances, one for each <a href="#situations">situation</a>.</p>
+<p>Here is an excerpt of the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/AI/FAI/FAI_Human_Master.d#L25">Human-Master tactic</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">FA_ENEMY_STORMPREHIT_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">npc</span>         <span class="o">=</span> <span class="n">GUR_1201_CorKalom</span><span class="p">;</span>
-  <span class="n">condition</span>   <span class="o">=</span> <span class="n">Info_Kalom_DrugMonopol_Condition</span><span class="p">;</span>
-  <span class="n">information</span> <span class="o">=</span> <span class="n">Info_Kalom_DrugMonopol_Info</span><span class="p">;</span>
-  <span class="n">permanent</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Hast DU noch eine Aufgabe für mich?&quot;</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_STRAFE</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">INSTANCE</span> <span class="nf">FA_MY_W_COMBO_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WHIRLATTACK</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">INSTANCE</span> <span class="nf">FA_MY_W_RUNTO_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_RUN</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 
-<p>Here, the condition checks, whether the player is joined the Swamp Camp and is now a Novice:</p>
-<div class="highlight"><pre><span></span><code><span class="n">FUNC</span> <span class="n">INT</span> <span class="nf">Info_Kalom_DrugMonopol_Condition</span><span class="p">()</span>
+<p>Notice the <code>4</code> in the instances name. This number is the tactics index. The instance name itself encodes the situation to which it should apply.
+Each of these instances can hold up to 6 moves. One of them is randomly chosen once the character is in that situation.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Here is what a skeleton would do, <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/AI/FAI/FAI_Skeleton.d#L59">if it has the enemy in focus</a> but is not doing anything otherwise:</p>
+<div class="highlight"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">FA_MY_W_FOCUS_17</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">Npc_GetTrueGuild</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">==</span><span class="n">GIL_NOV</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// implicit return 0</span>
-<span class="p">}</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_STRAFE</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_ATTACK</span><span class="p">;</span>
+    <span class="n">move</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_ATTACK</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
-<p>When the Player selected the dialogue line of this <em>Information</em>-Instance, this function gets called:</p>
-<div class="highlight"><pre><span></span><code><span class="n">FUNC</span> <span class="n">VOID</span> <span class="nf">Info_Kalom_DrugMonopol_Info</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">AI_Output</span> <span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span><span class="s">&quot;Mis_1_Psi_Kalom_DrugMonopol_15_00&quot;</span><span class="p">);</span> <span class="c1">// ...</span>
-  <span class="n">AI_Output</span> <span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span><span class="s">&quot;Mis_1_Psi_Kalom_DrugMonopol_10_01&quot;</span><span class="p">);</span> <span class="c1">// ...</span>
-
-  <span class="c1">// ... &lt;snip&gt;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Once the Player has selected the dialogue line, the Hero remembers it. Other scripts can then check whether that dialogue line was ever chosen by the player via a call to <code>Npc_KnowsInfo</code>.</p>
-<p>Dialogue-lines already known by the player and not flagged as <code>Permanent</code> will not show up in the menu anymore.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Notice how in Kor Kaloms <code>AI_Output</code> the two parameters are <code>other</code> and <code>self</code>, while the dialogue of Diego listed above explicitly used <code>hero</code>. I can imagine that is because Kor Kaloms Dialogue was made multiplayer-ready!</p>
+<p>With a chance of...</p>
+<ul>
+<li>&frac12; it will wait for 200 Milliseconds</li>
+<li>&#8531; it will attack</li>
+<li>&#8537; it will strafe in a random direction</li>
+</ul>
+<p>The order in which the moves are specified does not matter. The engine simply chooses one random move.</p>
 </div>
                 
               
@@ -581,7 +607,7 @@ Player game, that never happens.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../fight-ai/" title="Fight AI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../monster-ai/" title="Monster AI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -590,19 +616,19 @@ Player game, that never happens.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Fight AI
+                Monster AI
               </div>
             </div>
           </a>
         
         
-          <a href="../QuestLog/" title="Quest Log" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../DialogueSystem/" title="Dialogue System" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Quest Log
+                Dialogue System
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
