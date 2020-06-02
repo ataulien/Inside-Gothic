@@ -1,0 +1,19 @@
+@startuml
+
+!include ../../../style.iuml
+skinparam Linetype splines
+
+FadeIn: Increase Alpha
+FadeOut: Decrease Alpha
+
+[*] --> FadeIn
+FadeIn --> FadeIn : For about 25 seconds
+
+FadeIn --> StayVisible : When fully visible
+
+StayVisible --> FadeOut : After 25 seconds
+
+FadeOut --> FadeOut : For about 25 seconds
+FadeOut --> [*] : When invisible
+
+@enduml
