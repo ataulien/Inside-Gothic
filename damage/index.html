@@ -15,7 +15,7 @@
     
     
       
-        <title>Fight AI - Inside-Gothic</title>
+        <title>Damage Types - Inside-Gothic</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fight-ai" class="md-skip">
+        <a href="#damage-types" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Fight AI
+              Damage Types
             
           </span>
         </div>
@@ -329,6 +329,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../fight-ai/" title="Fight AI" class="md-nav__link">
+      Fight AI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -340,14 +352,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Fight AI
+        Damage Types
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Fight AI" class="md-nav__link md-nav__link--active">
-      Fight AI
+    <a href="./" title="Damage Types" class="md-nav__link md-nav__link--active">
+      Damage Types
     </a>
     
       
@@ -366,22 +378,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#situations" class="md-nav__link">
-    Situations
+  <a href="#damage-descriptor" class="md-nav__link">
+    Damage Descriptor
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#possible-fight-moves" class="md-nav__link">
-    Possible fight moves
+  <a href="#applying-damage" class="md-nav__link">
+    Applying damage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#character-tactics" class="md-nav__link">
-    Character tactics
+  <a href="#dead-or-knocked-out" class="md-nav__link">
+    Dead or knocked out?
   </a>
   
 </li>
@@ -390,18 +402,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../damage/" title="Damage Types" class="md-nav__link">
-      Damage Types
-    </a>
   </li>
 
     
@@ -467,22 +467,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#situations" class="md-nav__link">
-    Situations
+  <a href="#damage-descriptor" class="md-nav__link">
+    Damage Descriptor
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#possible-fight-moves" class="md-nav__link">
-    Possible fight moves
+  <a href="#applying-damage" class="md-nav__link">
+    Applying damage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#character-tactics" class="md-nav__link">
-    Character tactics
+  <a href="#dead-or-knocked-out" class="md-nav__link">
+    Dead or knocked out?
   </a>
   
 </li>
@@ -503,128 +503,151 @@
                   
                 
                 
-                <h1 id="fight-ai">Fight AI</h1>
-<p>Both monsters and humans use the same code for their Fight AI, which behaves differently depending on the weapons the character has access to.</p>
+                <h1 id="damage-types">Damage Types</h1>
+<p>This chapter sheds light onto the different kinds of damage a character can experience and how the damage affects it.</p>
+<p>Gothic defines the following damage types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Used by</th>
+<th>Additional info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barrier</td>
+<td>Barrier, duh</td>
+<td>Lighting uses Barrier + Magic damage</td>
+</tr>
+<tr>
+<td>Blunt</td>
+<td>Blunt Weapons, Golem, default for Spells</td>
+<td></td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>Sharp weapons, monsters with sharp teeth or claws</td>
+<td></td>
+</tr>
+<tr>
+<td>Fire</td>
+<td>Firewaran, Firegolem, Spells</td>
+<td></td>
+</tr>
+<tr>
+<td>Fly</td>
+<td>Golem, Troll, Stormfist spell</td>
+<td>Knocks the target into the air.</td>
+</tr>
+<tr>
+<td>Magic</td>
+<td>Most spells</td>
+<td></td>
+</tr>
+<tr>
+<td>Point</td>
+<td>Bows, Crossbows</td>
+<td></td>
+</tr>
+<tr>
+<td>Fall</td>
+<td>Falldamage</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Monsters are always in <em>Fist-Mode</em>, even when not attacking.</p>
-<p>An attacking Scavenger is the same as a fistpunch for the Fight-AI.</p>
+<p>Damage-types can be combined!</p>
 </div>
-<h2 id="situations">Situations</h2>
-<p>Which move the character should do next is depending on the situation it finds itself in.
-Here is a complete list of all situations:</p>
-<p><strong>Priority 1: Reacting to enemy actions</strong></p>
+<h2 id="damage-descriptor">Damage Descriptor</h2>
+<p>With each Damage to be applied, a Damage-Descriptor is filled. It can contains the following (often optional) properties:</p>
+<p><strong>Inflictor and target:</strong></p>
 <ul>
-<li>Enemy is about to hit me!</li>
-<li>Enemy is doing a storm-attack!</li>
-<li>I got the enemy in focus and they're turning towards me to hit me!</li>
+<li>Attacking Npc</li>
+<li>Attacking Object</li>
+<li>Object to Damage</li>
 </ul>
-<p><strong>Priority 2: Enemy is in melee range</strong></p>
+<p><strong>Knockback:</strong></p>
 <ul>
-<li>I'm in a weapon-combo</li>
-<li>I'm running towards my enemy</li>
-<li>I'm strafing</li>
-<li>I'm not doing anything, but got the enemy in focus</li>
-<li>Enemy is close, but not in focus!</li>
+<li>Direction the hit object should fly into (Damage type <code>Fly</code>)</li>
 </ul>
-<p><strong>Priority 3: Enemy is within walking distance (melee-range * 3)</strong></p>
+<p><strong>Visual:</strong></p>
 <ul>
-<li>I'm in a weapon-combo, but the enemy is just out of reach!</li>
-<li>I'm running towards my enemy, but he's still just out of reach!</li>
-<li>I'm strafing and the enemy is just out of reach</li>
-<li>Not doing anything while the enemy is just out of reach.</li>
-<li>Enemy just out of reach, but not focused!</li>
+<li>Particle-Effect to trigger on Hit</li>
 </ul>
-<p><strong>Priority 4: Enemy is in far-fighting-range (Bows, Crossbows, Magic)</strong></p>
+<p><strong>Damage amount:</strong></p>
 <ul>
-<li>I have the enemy in focus!</li>
-<li>Enemy is not focused, but within far-fighting-range!</li>
+<li>Damages for each used Damage-Type</li>
+<li>Total damage to apply</li>
+<li>Damage multiplier</li>
 </ul>
-<p>All those situations are checked from top to bottom, in the order they are given here. Depending on the first match, the next move is determined.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Determination of the next move for a situation can also result in trying the next situation!</p>
+<p><strong>Damage Origin:</strong></p>
+<ul>
+<li>Item the damage originates from (Weapon)</li>
+<li>Spell information (Spell type, level, category)</li>
+<li>Weapon-Kind (Fist, Melee, Ranged, Magic, Special)</li>
+<li>Hit location</li>
+</ul>
+<p><strong>Damage over Time:</strong></p>
+<ul>
+<li>How long the damage should stay active</li>
+<li>How often it should be applied (Interval)</li>
+<li>Damage per interval</li>
+</ul>
+<p><strong>Lethality:</strong></p>
+<ul>
+<li>Whether the damage should kill the hit Character</li>
+</ul>
+<h2 id="applying-damage">Applying damage</h2>
+<p>Damage is usually applied as an <a href="../ActionQueue/">Action from the Action-Queue</a>. Damage-over-time is usually applied as an Overlay, so other Actions can be executed simultaneously.</p>
+<p>There is a condition checking whether the Npc is not Dead, Unconscious or blocked by magic. Only if neither of those apply damage can be applied.</p>
+<p>The following spell-effects count as "restraining the Character" and must <strong>not</strong> be active:</p>
+<ul>
+<li>Icecube</li>
+<li>Whirlwind</li>
+<li>Green Tentacles</li>
+<li>Icewave</li>
+<li>Pyrokinesis</li>
+<li>Suck Energy</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While these spells are checked, the check does not seem to work in the game, as you can in fact damage enemies while they are frozen!</p>
+<p>(I probably just haven't figured that out completely yet)</p>
 </div>
-<h2 id="possible-fight-moves">Possible fight moves</h2>
-<p>The following fight moves can be done by the characters:</p>
-<p><strong>Movement:</strong></p>
+<p>Additionally to the field in the Damage Descriptor saying whether the inflicted damage should <em>not</em> be lethal, there are further conditions about that:</p>
+<p>For Damage to be non-lethal, the attacker</p>
 <ul>
-<li>Run</li>
-<li>Run back</li>
-<li>Jump back</li>
-<li>Turn</li>
-<li>Strafe</li>
-<li>Turn to hit</li>
-<li>Stand up</li>
+<li>must use a blunt weapon if it is <strong>non-human</strong></li>
+<li>must use a blunt or edged weapon if it is <strong>human</strong></li>
 </ul>
-<p><strong>Attacks:</strong></p>
-<ul>
-<li>Attack [When walking: Stormattack] otherwise [Left or Right]</li>
-<li>Side attack [Left &rarr; Right]</li>
-<li>Front attack [Left &rarr; Forward] or [Right &rarr; Forward]</li>
-<li>Triple attack [Forward &rarr; Right &rarr; Left] or [Left &rarr; Right &rarr; Forward]</li>
-<li>Whirl attack [Left &rarr; Right &rarr; Left &rarr; Right]</li>
-<li>Master attack [Left &rarr; Right &rarr; 4x Forward]</li>
-<li>Parade</li>
-<li>Storm-Attack</li>
-</ul>
-<p><strong>Attack Status:</strong></p>
-<ul>
-<li>Prehit</li>
-<li>Combozone</li>
-<li>Posthit</li>
-</ul>
-<p><strong>Character status:</strong></p>
-<ul>
-<li>On ground</li>
-<li>Stumble</li>
-<li>Wait (short, 200ms)</li>
-<li>Wait (long, 400ms)</li>
-</ul>
-<h2 id="character-tactics">Character tactics</h2>
-<p>Now with all situations and fight moves defined, we can look into how different fight-tactics are realized. Different tactics are used depending on the type of character and skill-level. The tactics are defined in the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/tree/master/gothic/_work/data/Scripts/content/AI/FAI">script files</a>.</p>
-<p>For each tactic, there is a set of script instances, one for each <a href="#situations">situation</a>.</p>
-<p>Here is an excerpt of the <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/AI/FAI/FAI_Human_Master.d#L25">Human-Master tactic</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">FA_ENEMY_STORMPREHIT_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
+<p>Additionally, the victim itself must be human and cannot be in water.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An unconscious character's hitpoints are set to 1.</p>
+</div>
+<h2 id="dead-or-knocked-out">Dead or knocked out?</h2>
+<p>In Gothic, Monsters will kill Humans immediately and vice-versa. However, Humans will <em>always</em> knock out other Humans first, leaving them on the ground with 1 hp!</p>
+<p>Whether the attacker finishes the victim is up to the scripts. Right after the attack is over, the following <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/AI/ZS_Human/ZS_Attack.d#L211">script-code</a> is executed (shortened):</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">((</span><span class="n">Npc_GetPermAttitude</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">==</span> <span class="n">ATT_HOSTILE</span><span class="p">)</span>
+<span class="o">||</span>  <span class="p">((</span><span class="n">C_GetAttackReason</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="n">AIV_AR_INTRUDER</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">Npc_HasNews</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">NEWS_DEFEAT</span><span class="p">,</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)))</span>
 <span class="p">{</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_STRAFE</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="n">INSTANCE</span> <span class="nf">FA_MY_W_COMBO_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
+    <span class="n">AI_FinishingMove</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
 <span class="p">{</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WHIRLATTACK</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="n">INSTANCE</span> <span class="nf">FA_MY_W_RUNTO_4</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_RUN</span><span class="p">;</span>
+    <span class="n">B_Say</span> <span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="s">&quot;$NEVERTRYTHATAGAIN&quot;</span> <span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 
-<p>Notice the <code>4</code> in the instances name. This number is the tactics index. The instance name itself encodes the situation to which it should apply.
-Each of these instances can hold up to 6 moves. One of them is randomly chosen once the character is in that situation.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Here is what a skeleton would do, <a href="https://github.com/GothicII/GOTHIC-MOD-Development-Kit/blob/4071a70b3a8943e374ccbf886986e494b4be0858/gothic/_work/data/Scripts/content/AI/FAI/FAI_Skeleton.d#L59">if it has the enemy in focus</a> but is not doing anything otherwise:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTANCE</span> <span class="nf">FA_MY_W_FOCUS_17</span> <span class="p">(</span><span class="n">C_FightAI</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_STRAFE</span><span class="p">;</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_WAIT</span><span class="p">;</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_ATTACK</span><span class="p">;</span>
-    <span class="n">move</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">MOVE_ATTACK</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div>
-
-<p>With a chance of...</p>
+<p>This snippet checks whether the victim is</p>
 <ul>
-<li>&frac12; it will wait for 200 Milliseconds</li>
-<li>&#8531; it will attack</li>
-<li>&#8537; it will strafe in a random direction</li>
+<li>considered hostile</li>
+<li>or is an intruder (ie. walking towards Guards) and has been knocked out before</li>
 </ul>
-<p>The order in which the moves are specified does not matter. The engine simply chooses one random move.</p>
-</div>
+<p>If one of those conditions is true, the victim will by killed once it is laying on the ground unconscious.</p>
                 
               
               
@@ -643,7 +666,7 @@ Each of these instances can hold up to 6 moves. One of them is randomly chosen o
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../monster-ai/" title="Monster AI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../fight-ai/" title="Fight AI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -652,19 +675,19 @@ Each of these instances can hold up to 6 moves. One of them is randomly chosen o
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Monster AI
+                Fight AI
               </div>
             </div>
           </a>
         
         
-          <a href="../damage/" title="Damage Types" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../DialogueSystem/" title="Dialogue System" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Damage Types
+                Dialogue System
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
