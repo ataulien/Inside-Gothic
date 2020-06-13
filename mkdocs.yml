@@ -15,8 +15,11 @@ nav:
   - Daily Routine: DailyRoutine.md
   - Monster AI: monster-ai.md
   - Fight AI: fight-ai.md
+  - Damage Types: damage.md
   - Dialogue System: DialogueSystem.md
   - Quest Log: QuestLog.md
+  - Perceptions: perceptions.md
+  - Spreading the News: SpreadingTheNews.md
 
 theme:
   name: material
