@@ -427,10 +427,29 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#perception-broadcast-ranges" class="md-nav__link">
+    Perception Broadcast Ranges
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../SpreadingTheNews/" title="Spreading the News" class="md-nav__link">
+      Spreading the News
+    </a>
   </li>
 
     
@@ -473,6 +492,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#perception-broadcast-ranges" class="md-nav__link">
+    Perception Broadcast Ranges
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -492,77 +518,307 @@
                 <h1 id="perceptions">Perceptions</h1>
 <p>Whenever a Character notices (<em>assesses</em>) something in the world around it, a <em>Perception</em> is triggered. For each perception, a script-state can be registered to be started once that perception fires.</p>
 <p>Depending on the script-state entered upon assessing something, perceptions may be set up different, ie. Npcs reactions differ depending on their situations.</p>
+<p>Perceptions can be manually triggered from script-code (marked <img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" />) or are sent from the engine on certain actions (marked <img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" />).</p>
 <h2 id="active-perceptions">Active Perceptions</h2>
 <p>Here is a list of all perceptions checked by each character individually every frame:</p>
 <ul>
-<li>Assess Player</li>
-<li>Assess Enemy</li>
-<li>Assess Fighter</li>
-<li>Assess Body</li>
-<li>Assess Item</li>
+<li>
+<p><strong>Assess Player:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Triggered when the Player is nearby.</p>
+</li>
+<li>
+<p><strong>Assess Enemy:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Triggered when a hostile Character is nearby.</p>
+</li>
+<li>
+<p><strong>Assess Fighter:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Triggered when a nearby Character has their weapon out.<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Sent when someone transformed into a Bloodfly. (?)</p>
+</li>
+<li>
+<p><strong>Assess Body:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Triggered when a nearby Character is dead or unconscious.</p>
+</li>
+<li>
+<p><strong>Assess Item:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Triggered when an item is nearby.</p>
+</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If multiple nearby Characters apply, the perception is only triggered for the closest one.</p>
+</div>
 <h2 id="passive-perceptions">Passive Perceptions</h2>
-<p>Passive perceptions are usually broadcast to all nearby applicable Characters within a certain range, but they can also be
-are manually triggered from script-code or from the engine on certain actions.</p>
+<p>Passive perceptions are usually broadcast to all nearby applicable Characters within a certain range.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Perception ranges can be adjusted separately from the Daedalus-scripts.</p>
 </div>
-<p><strong>Fighting</strong>:</p>
+<p><strong>Fighting:</strong></p>
 <ul>
-<li>Assess Murder</li>
-<li>Assess Defeat</li>
-<li>Assess Damage</li>
-<li>Assess Others damage</li>
-<li>Assess Threat</li>
-<li>Assess Draw Weapon</li>
-<li>Assess Remove weapon</li>
-<li>Assess Warn</li>
+<li>
+<p><strong>Assess Murder:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast to nearby NPCs when someones/somethings Death was caused by another Character (Human or Monster).</p>
+</li>
+<li>
+<p><strong>Assess Defeat:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when a Character drops unconscious.</p>
+</li>
+<li>
+<p><strong>Assess Damage:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to the damaged NPC after receiving damage and when an attack was parried (reports 0 damage).</p>
+</li>
+<li>
+<p><strong>Assess Others damage:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Always broadcast to nearby characters when an <code>Assess Damage</code> happened.
+-</p>
+</li>
+<li>
+<p><strong>Assess Threat:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to the NPC targeted with a ranged weapon.</p>
+</li>
+<li>
+<p><strong>Assess Draw Weapon:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when the player drew their weapon (ONLY the player!).</p>
+</li>
+<li>
+<p><strong>Assess Remove weapon:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when someone un-drew their weapon.</p>
+</li>
+<li>
+<p><strong>Assess Warn:</strong><br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if someone saw pickpocketing.<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if someone (weaker NPCs) is calling for guards (ie. if the player entered a forbidden room).<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if someone witnessed stealing an item<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if someone witnessed a sneaking Character (After "Observe Suspect")<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if a character is asking their comrades for help<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast while monsters are warning the player (or any character) before they attack<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if an Orc has assessed damage<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast if an Orc witnessed an intruder (After "Observe Intruder")</p>
+</li>
 </ul>
 <p><strong>Trickery:</strong></p>
 <ul>
-<li>Assess Enter Room</li>
-<li>Observe Intruder</li>
-<li>Catch Thief</li>
-<li>Assess Theft</li>
-<li>Assess Fake Guild</li>
-<li>Observe Suspect</li>
+<li>
+<p><strong>Assess Enter Room:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when the Character has changed rooms (went outside &rarr; inside, inside &rarr; outside or changed rooms within the same building)<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast after sleeping in a bed, so that the NPCs will notice the player being in the room again instead of letting the player steal everything.</p>
+</li>
+<li>
+<p><strong>Observe Intruder:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when the Player stopped moving and is not sneaking. (?)</p>
+</li>
+<li>
+<p><strong>Catch Thief:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast after pickpocketing when the victim is aware of the action.</p>
+</li>
+<li>
+<p><strong>Assess Theft:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when an item was picked up. Script figures out if taking the item really was theft.<br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast to nearby Characters during pickpocketing. (There better be nobody nearby...)</p>
+</li>
+<li>
+<p><strong>Assess Fake Guild:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast to nearby characters when someone transformed into another creature, making
+  them remember that you tried to fake your guild. (Better not have anyone else
+  nearby when transforming!)</p>
+</li>
+<li>
+<p><strong>Observe Suspect:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when a Character is sneaking. Usually results in nearby NPCs asking "Why are you sneaking?".</p>
+</li>
+<li>
+<p><strong>Assess Surprise:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when someone transformed back from being a monster.</p>
+</li>
+<li>
+<p><strong>Assess Use Mob:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when a Character starts using an interactive object. (ie. fiddling with a locked chest)</p>
+</li>
 </ul>
 <p><strong>Sound:</strong></p>
 <ul>
-<li>Assess Quiet Sound</li>
-<li>Assess Fight Sound</li>
+<li>
+<p><strong>Assess Quiet Sound:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast every time a footstep-sound is played. Also broadcast when two (physics) objects collided (ie. arrows hitting the ground).</p>
+</li>
+<li>
+<p><strong>Assess Fight Sound:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when a Character got hit during a fight.<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Broadcast when someone got hit by magic (Assess Magic).</p>
+</li>
 </ul>
 <p><strong>Talking:</strong></p>
 <ul>
-<li>Assess Call</li>
-<li>Assess Talk</li>
-<li>Npc Command (used for finding a smalltalk parter)</li>
+<li>
+<p><strong>Assess Call:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to the NPC the player (or an other NPC) wants to talk to, if it is <em>not</em><br />
+  within talking range. Usually plays a "Come over here" animation and waits<br />
+  until the player comes closer.</p>
+</li>
+<li>
+<p><strong>Assess Talk:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to the NPC the player (or an other NPC) wants to talk to, if it is within<br />
+  talking range, ie. after pressing <code>CTRL+Up</code> in front of an NPC. Usually begins a dialogue between the player and the NPC.</p>
+</li>
+<li>
+<p><strong>Npc Command:</strong><br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Used for finding a smalltalk parter.<br />
+<img alt="📄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg" title=":page_facing_up:" /> Sent when an NPC wants their item back ("Give it back to me!", not sure whether that is even used, actually)</p>
+</li>
 </ul>
 <p><strong>Items:</strong></p>
 <ul>
-<li>Assess Given Item</li>
+<li><strong>Assess Given Item:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> (Seems to be unused) Sent to the receiving NPC during an item-trade (ie. when shopping)</li>
 </ul>
 <p><strong>World:</strong></p>
 <ul>
-<li>Move Mob</li>
-<li>Move Npc</li>
+<li>
+<p><strong>Move Mob:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when a door is blocking the path of an AI controlled character.</p>
+</li>
+<li>
+<p><strong>Move Npc:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when an other Character is blocking the path of an AI controlled character.</p>
+</li>
 </ul>
 <p><strong>Magic:</strong></p>
 <ul>
-<li>Assess Magic</li>
-<li>Assess Stopmagic</li>
-<li>Assess Caster</li>
+<li>
+<p><strong>Assess Magic:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to NPCs hit by magic effects, has access to spell type and category.</p>
+</li>
+<li>
+<p><strong>Assess Stopmagic:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Sent to NPCs which got hit by magic effects (<code>Assess Magic</code>) when the magic effect stopped (tied to the actual particle effect).</p>
+</li>
+<li>
+<p><strong>Assess Caster:</strong><br />
+<img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> Broadcast when someone starts investing mana in a magic spell.</p>
+</li>
 </ul>
-<p><strong>Other:</strong></p>
-<ul>
-<li>Assess Surprise (Someone transformed back from being a monster)</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>The perception <code>Observe Intruder</code> is broadcast while a Character is sneaking for more than 3 seconds. After 3 seconds,
-the perception fires and the registered script-state is started on all nearby Npcs. Usually, NPCs will ask "why are you sneaking?".</p>
-</div>
+<h2 id="perception-broadcast-ranges">Perception Broadcast Ranges</h2>
+<p>Broadcast ranges can be set up for each perception individually. Therefore, only their default values are listed here:</p>
+<table>
+<thead>
+<tr>
+<th align="right">Perception</th>
+<th align="left">Range (m)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Assess Murder</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Defeat</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Damage</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="right">Assess Others damage</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="right">Assess Threat</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Draw Weapon</td>
+<td align="left">6</td>
+</tr>
+<tr>
+<td align="right">Assess Remove weapon</td>
+<td align="left">20</td>
+</tr>
+<tr>
+<td align="right">Assess Warn</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Enter Room</td>
+<td align="left">15</td>
+</tr>
+<tr>
+<td align="right">Observe Intruder</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="right">Catch Thief</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="right">Assess Theft</td>
+<td align="left">8</td>
+</tr>
+<tr>
+<td align="right">Assess Fake Guild</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Observe Suspect</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Assess Surprise</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Assess Use Mob</td>
+<td align="left">15</td>
+</tr>
+<tr>
+<td align="right">Assess Quiet Sound</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="right">Assess Fight Sound</td>
+<td align="left">20</td>
+</tr>
+<tr>
+<td align="right">Assess Call</td>
+<td align="left">10</td>
+</tr>
+<tr>
+<td align="right">Assess Talk</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Npc Command</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Assess Given Item</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Move Mob</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Move Npc</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="right">Assess Magic</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Stopmagic</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="right">Assess Caster</td>
+<td align="left">20</td>
+</tr>
+</tbody>
+</table>
+<p>Active perception range is set for each Character via a script property (<code>senses_range</code>).</p>
                 
               
               
@@ -595,6 +851,20 @@ the perception fires and the registered script-state is started on all nearby Np
             </div>
           </a>
         
+        
+          <a href="../SpreadingTheNews/" title="Spreading the News" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Spreading the News
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
